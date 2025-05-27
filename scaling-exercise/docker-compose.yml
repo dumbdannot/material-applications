@@ -11,8 +11,9 @@ services:
   load-balancer:
       build: ./load-balancer
       image: load-balancer
-      volumes: 
-        - /var/run/docker.sock:/tmp/docker.sock:ro
+      privileged: true
+      volumes:
+        - /run/user/1000/docker.sock:/tmp/docker.sock:ro
       ports:
         - 80:80
       container_name: load-balancer
