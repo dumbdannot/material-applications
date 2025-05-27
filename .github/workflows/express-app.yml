@@ -35,3 +35,9 @@ jobs:
         context: express-app
         push: true
         tags: ${{ secrets.DOCKER_USERNAME }}/express-app:latest
+
+    - name: Push to render
+      uses: JorgeLNJunior/render-deploy@v1.4.5
+      with:
+        service_id: ${{ secrets.RENDER_SERVICE_ID }}
+        api_key: ${{ secrets.RENDER_API_KEY }}
